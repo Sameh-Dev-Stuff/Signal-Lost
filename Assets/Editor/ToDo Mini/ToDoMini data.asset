@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a606916b18b974bb94d44eb8800f1c, type: 3}
+  m_Name: ToDoMini data
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::ToDoMini.ToDoMiniData
+  displayDensity: 0
+  keepCompletedTasks: 1
+  showCompletedTasks: 0
+  items:
+  - task: 'Create Project '
+    isComplete: 1
+  - task: Git Setup
+    isComplete: 1
+  - task: Player Movement
+    isComplete: 1
+  - task: Top-Down Camera
+    isComplete: 1
+  - task: 'Player Movement Animation '
+    isComplete: 1
+  - task: Rifle Shooting
+    isComplete: 0
+  - task: Ammo + Reload
+    isComplete: 0
+  - task: Health / Damage
+    isComplete: 0
+  - task: Basic Enemy
+    isComplete: 0
+  - task: Enemy Chase
+    isComplete: 0
+  - task: Enemy Death
+    isComplete: 0
+  - task: Enemy Spawner
+    isComplete: 0
+  - task: Ammo Pickup
+    isComplete: 0
+  - task: Power Cell Pickup
+    isComplete: 0
+  - task: Objective System
+    isComplete: 0
+  - task: Base Interaction
+    isComplete: 0
+  - task: Rescue Timer
+    isComplete: 0
+  - task: Enemy Waves
+    isComplete: 0
+  - task: Fast Enemy
+    isComplete: 0
+  - task: Heavy Enemy
+    isComplete: 0
+  - task: Victory / Game Over
+    isComplete: 0
+  - task: 'UI '
+    isComplete: 0
+  - task: Environment
+    isComplete: 0
+  - task: Lighting
+    isComplete: 0
+  - task: VFX
+    isComplete: 0
+  - task: Audio
+    isComplete: 0
+  - task: Polish
+    isComplete: 0
+  - task: 'Optimization '
+    isComplete: 0

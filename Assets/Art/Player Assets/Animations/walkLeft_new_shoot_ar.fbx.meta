@@ -1,469 +1,15 @@
 fileFormatVersion: 2
-guid: e398e3aa9cdfcdc4ebd01a06e4c544ae
-AssetOrigin:
-  serializedVersion: 1
-  productId: 106154
-  packageName: Sci Fi Warrior PBR HP Polyart
-  packageVersion: 1.2
-  assetPath: Assets/SciFiWarriorPBRHPPolyart/Animations/WalkFront_Shoot_ar.fbx
-  uploadId: 349698
+guid: fdafaabfa277ff748b26cb2487c43d7c
 ModelImporter:
   serializedVersion: 24300
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Arm1
-  - first:
-      1: 100002
-    second: ArmPlacement_Left
-  - first:
-      1: 100004
-    second: ArmPlacement_Right
-  - first:
-      1: 100006
-    second: ArmPlacement_Upper
-  - first:
-      1: 100008
-    second: ArmPosition_Left
-  - first:
-      1: 100010
-    second: ArmPosition_Right
-  - first:
-      1: 100012
-    second: AssaultRifle
-  - first:
-      1: 100014
-    second: BackPack
-  - first:
-      1: 100016
-    second: Backpack1
-  - first:
-      1: 100018
-    second: Body1
-  - first:
-      1: 100020
-    second: Chest
-  - first:
-      1: 100022
-    second: Foot_Left
-  - first:
-      1: 100024
-    second: Foot_Right
-  - first:
-      1: 100026
-    second: Hand_Left
-  - first:
-      1: 100028
-    second: Hand_Right
-  - first:
-      1: 100030
-    second: Head
-  - first:
-      1: 100032
-    second: head1
-  - first:
-      1: 100034
-    second: Headgear_Left
-  - first:
-      1: 100036
-    second: Headgear_Right
-  - first:
-      1: 100038
-    second: Hips
-  - first:
-      1: 100040
-    second: Index_Distal_Left
-  - first:
-      1: 100042
-    second: Index_Distal_Right
-  - first:
-      1: 100044
-    second: Index_Intermediate_Left
-  - first:
-      1: 100046
-    second: Index_Intermediate_Right
-  - first:
-      1: 100048
-    second: Index_Proximal_Left
-  - first:
-      1: 100050
-    second: Index_Proximal_Right
-  - first:
-      1: 100052
-    second: Leg1
-  - first:
-      1: 100054
-    second: LowerArm_Left
-  - first:
-      1: 100056
-    second: LowerArm_Right
-  - first:
-      1: 100058
-    second: LowerLeg_Left
-  - first:
-      1: 100060
-    second: LowerLeg_Right
-  - first:
-      1: 100062
-    second: magazine_Right
-  - first:
-      1: 100064
-    second: Neck
-  - first:
-      1: 100066
-    second: RestOfFingers_Distal_Left
-  - first:
-      1: 100068
-    second: RestOfFingers_Distal_Right
-  - first:
-      1: 100070
-    second: RestOfFingers_Intermediate_Left
-  - first:
-      1: 100072
-    second: RestOfFingers_Intermediate_Right
-  - first:
-      1: 100074
-    second: RestOfFingers_Proximal_Left
-  - first:
-      1: 100076
-    second: RestOfFingers_Proximal_Right
-  - first:
-      1: 100078
-    second: Shoulder_Left
-  - first:
-      1: 100080
-    second: Shoulder_Right
-  - first:
-      1: 100082
-    second: ShoulderPadBlade_Left
-  - first:
-      1: 100084
-    second: ShoulderPadBlade_Right
-  - first:
-      1: 100086
-    second: ShoulderPadBody_Left
-  - first:
-      1: 100088
-    second: ShoulderPadBody_Right
-  - first:
-      1: 100090
-    second: ShoulderPadCTRL_Left
-  - first:
-      1: 100092
-    second: ShoulderPadCTRL_Right
-  - first:
-      1: 100094
-    second: Spine
-  - first:
-      1: 100096
-    second: Thumb_Distal_Left
-  - first:
-      1: 100098
-    second: Thumb_Distal_Right
-  - first:
-      1: 100100
-    second: Thumb_Intermediate_Left
-  - first:
-      1: 100102
-    second: Thumb_Intermediate_Right
-  - first:
-      1: 100104
-    second: Thumb_Proximal_Left
-  - first:
-      1: 100106
-    second: Thumb_Proximal_Right
-  - first:
-      1: 100108
-    second: Toe_Left
-  - first:
-      1: 100110
-    second: Toe_Right
-  - first:
-      1: 100112
-    second: Toetip_Left
-  - first:
-      1: 100114
-    second: Toetip_Right
-  - first:
-      1: 100116
-    second: Trigger_Right
-  - first:
-      1: 100118
-    second: UpperArm_Left
-  - first:
-      1: 100120
-    second: UpperArm_Right
-  - first:
-      1: 100122
-    second: UpperLeg_Left
-  - first:
-      1: 100124
-    second: UpperLeg_Right
-  - first:
-      1: 100126
-    second: //RootNode
-  - first:
-      4: 400000
-    second: Arm1
-  - first:
-      4: 400002
-    second: ArmPlacement_Left
-  - first:
-      4: 400004
-    second: ArmPlacement_Right
-  - first:
-      4: 400006
-    second: ArmPlacement_Upper
-  - first:
-      4: 400008
-    second: ArmPosition_Left
-  - first:
-      4: 400010
-    second: ArmPosition_Right
-  - first:
-      4: 400012
-    second: AssaultRifle
-  - first:
-      4: 400014
-    second: BackPack
-  - first:
-      4: 400016
-    second: Backpack1
-  - first:
-      4: 400018
-    second: Body1
-  - first:
-      4: 400020
-    second: Chest
-  - first:
-      4: 400022
-    second: Foot_Left
-  - first:
-      4: 400024
-    second: Foot_Right
-  - first:
-      4: 400026
-    second: Hand_Left
-  - first:
-      4: 400028
-    second: Hand_Right
-  - first:
-      4: 400030
-    second: Head
-  - first:
-      4: 400032
-    second: head1
-  - first:
-      4: 400034
-    second: Headgear_Left
-  - first:
-      4: 400036
-    second: Headgear_Right
-  - first:
-      4: 400038
-    second: Hips
-  - first:
-      4: 400040
-    second: Index_Distal_Left
-  - first:
-      4: 400042
-    second: Index_Distal_Right
-  - first:
-      4: 400044
-    second: Index_Intermediate_Left
-  - first:
-      4: 400046
-    second: Index_Intermediate_Right
-  - first:
-      4: 400048
-    second: Index_Proximal_Left
-  - first:
-      4: 400050
-    second: Index_Proximal_Right
-  - first:
-      4: 400052
-    second: Leg1
-  - first:
-      4: 400054
-    second: LowerArm_Left
-  - first:
-      4: 400056
-    second: LowerArm_Right
-  - first:
-      4: 400058
-    second: LowerLeg_Left
-  - first:
-      4: 400060
-    second: LowerLeg_Right
-  - first:
-      4: 400062
-    second: magazine_Right
-  - first:
-      4: 400064
-    second: Neck
-  - first:
-      4: 400066
-    second: RestOfFingers_Distal_Left
-  - first:
-      4: 400068
-    second: RestOfFingers_Distal_Right
-  - first:
-      4: 400070
-    second: RestOfFingers_Intermediate_Left
-  - first:
-      4: 400072
-    second: RestOfFingers_Intermediate_Right
-  - first:
-      4: 400074
-    second: RestOfFingers_Proximal_Left
-  - first:
-      4: 400076
-    second: RestOfFingers_Proximal_Right
-  - first:
-      4: 400078
-    second: Shoulder_Left
-  - first:
-      4: 400080
-    second: Shoulder_Right
-  - first:
-      4: 400082
-    second: ShoulderPadBlade_Left
-  - first:
-      4: 400084
-    second: ShoulderPadBlade_Right
-  - first:
-      4: 400086
-    second: ShoulderPadBody_Left
-  - first:
-      4: 400088
-    second: ShoulderPadBody_Right
-  - first:
-      4: 400090
-    second: ShoulderPadCTRL_Left
-  - first:
-      4: 400092
-    second: ShoulderPadCTRL_Right
-  - first:
-      4: 400094
-    second: Spine
-  - first:
-      4: 400096
-    second: Thumb_Distal_Left
-  - first:
-      4: 400098
-    second: Thumb_Distal_Right
-  - first:
-      4: 400100
-    second: Thumb_Intermediate_Left
-  - first:
-      4: 400102
-    second: Thumb_Intermediate_Right
-  - first:
-      4: 400104
-    second: Thumb_Proximal_Left
-  - first:
-      4: 400106
-    second: Thumb_Proximal_Right
-  - first:
-      4: 400108
-    second: Toe_Left
-  - first:
-      4: 400110
-    second: Toe_Right
-  - first:
-      4: 400112
-    second: Toetip_Left
-  - first:
-      4: 400114
-    second: Toetip_Right
-  - first:
-      4: 400116
-    second: Trigger_Right
-  - first:
-      4: 400118
-    second: UpperArm_Left
-  - first:
-      4: 400120
-    second: UpperArm_Right
-  - first:
-      4: 400122
-    second: UpperLeg_Left
-  - first:
-      4: 400124
-    second: UpperLeg_Right
-  - first:
-      4: 400126
-    second: //RootNode
-  - first:
-      21: 2100000
-    second: w_h_01
-  - first:
-      21: 2100002
-    second: w_b_01
-  - first:
-      21: 2100004
-    second: w_bp_01
-  - first:
-      21: 2100006
-    second: w_a_01
-  - first:
-      21: 2100008
-    second: w_f_01
-  - first:
-      21: 2100010
-    second: w_w_01
-  - first:
-      43: 4300000
-    second: head1
-  - first:
-      43: 4300002
-    second: Body1
-  - first:
-      43: 4300004
-    second: Backpack1
-  - first:
-      43: 4300006
-    second: Arm1
-  - first:
-      43: 4300008
-    second: Leg1
-  - first:
-      43: 4300010
-    second: AssaultRifle
-  - first:
-      74: 7400000
-    second: WalkFront_Shoot_AR
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Arm1
-  - first:
-      137: 13700002
-    second: AssaultRifle
-  - first:
-      137: 13700004
-    second: Backpack1
-  - first:
-      137: 13700006
-    second: Body1
-  - first:
-      137: 13700008
-    second: head1
-  - first:
-      137: 13700010
-    second: Leg1
-  - first:
-      41386430: 2186277476908879412
-    second: ImportLogs
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
-    searchTexturesGlobally: 1
+    searchTexturesGlobally: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -486,11 +32,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: WalkFront_Shoot_AR
+      name: WalkLeft_Shoot_AR New
       takeName: Take 001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 40
+      internalID: 1827226128182048838
+      firstFrame: 20
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -641,7 +187,7 @@ ModelImporter:
         weight: 0
       maskType: 1
       maskSource: {fileID: 31900000, guid: e0402be4321aa2646a7af179c44591a7, type: 2}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 20
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -655,8 +201,8 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -676,7 +222,7 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
+    secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
@@ -1340,14 +886,14 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 34d1b8e01a0412f449dcefc77b05e27b, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

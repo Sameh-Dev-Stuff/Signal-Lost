@@ -98,6 +98,7 @@ public class InputManager : MonoBehaviour
         if (scene.buildIndex == 0)
         {
             SwitchToUiActionMap();
+            SwitchToPlayerActionMap(); // -- -- --  jast for test -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
         }
         else
         {

@@ -5,11 +5,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField, BoxGroup("References"), Required] private Rigidbody rb;
     [SerializeField, BoxGroup("References"), Required] private InputManager input;
-    [BoxGroup("References")] private Camera _camera;
+    private Camera _camera;
    
+    
     [SerializeField, BoxGroup("Settings"), Range(0,10)] private float walkSpeed = 5f;
     [SerializeField, BoxGroup("Settings"), Range(0,10)] private float rotationSpeed = 10f;
     [SerializeField, BoxGroup("Settings")] private LayerMask groundMask;
+    
     
     private bool _isGamepadAiming;
     private Vector2 _lastMousePosition;
@@ -21,10 +23,11 @@ public class PlayerMovement : MonoBehaviour
         _lastMousePosition = input.AimPointInput();
         _camera = Camera.main;
     }
-    
+
     private void FixedUpdate()
     {
         Movement();
+        Rotation();
     }
 
     private void Movement()
@@ -34,10 +37,9 @@ public class PlayerMovement : MonoBehaviour
         diraction = diraction.normalized;
         
         rb.MovePosition(transform.position + diraction * (walkSpeed * Time.fixedDeltaTime));
-         
-
-        Rotation();
     }
+    
+    
 
     private void Rotation()
     {

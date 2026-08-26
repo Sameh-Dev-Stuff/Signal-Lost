@@ -9,12 +9,13 @@ public class PlayerMovement : MonoBehaviour
    
     
     [SerializeField, BoxGroup("Settings"), Range(0,10)] private float walkSpeed = 5f;
+    [SerializeField, BoxGroup("Settings"), Range(0,10)] private float runSpeed = 5f;
     [SerializeField, BoxGroup("Settings"), Range(0,10)] private float rotationSpeed = 10f;
     [SerializeField, BoxGroup("Settings")] private LayerMask groundMask;
     
-    
     private bool _isGamepadAiming;
     private Vector2 _lastMousePosition;
+    private float _speed;
     
     private void Start()
     {
@@ -26,8 +27,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Movement();
         Rotation();
+        
+        if (input.SprintInput())
+        {
+            MovementFast();
+        }
+        else
+        {
+            Movement();
+        }
     }
 
     private void Movement()
@@ -39,6 +48,22 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(transform.position + diraction * (walkSpeed * Time.fixedDeltaTime));
     }
     
+    private void MovementFast()
+    {
+        float forwardMove = 0;
+        
+        if (input.MoveInput().y >= 0.1f)
+        {
+            forwardMove = 1;
+        }
+        else
+        {
+            forwardMove = 0;
+        }
+        
+        // rb.MovePosition(transform.position + transform.forward * (forwardMove * ( runSpeed * Time.fixedDeltaTime)));
+        rb.MovePosition(transform.position + transform.forward * ( runSpeed * Time.fixedDeltaTime));
+    }
     
 
     private void Rotation()

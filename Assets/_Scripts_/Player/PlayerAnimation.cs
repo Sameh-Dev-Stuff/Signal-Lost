@@ -13,9 +13,9 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField, AnimatorParam("animator")]
     private int yInput;
-
+    
     [SerializeField, AnimatorParam("animator")]
-    private int moveInputMagnitude;
+    private int isRuning;
 
     private void Update()
     {
@@ -32,6 +32,6 @@ public class PlayerAnimation : MonoBehaviour
 
         animator.SetFloat(xInput, localMove.x);
         animator.SetFloat(yInput, localMove.z);
-        animator.SetFloat(moveInputMagnitude, moveInput.magnitude);
+        animator.SetBool(isRuning, input.SprintInput());
     }
 }

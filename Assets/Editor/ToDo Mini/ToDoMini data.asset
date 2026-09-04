@@ -27,9 +27,9 @@ MonoBehaviour:
   - task: 'Player Movement Animation '
     isComplete: 1
   - task: Rifle Shooting
-    isComplete: 0
+    isComplete: 1
   - task: Ammo + Reload
-    isComplete: 0
+    isComplete: 1
   - task: Health / Damage
     isComplete: 0
   - task: Basic Enemy

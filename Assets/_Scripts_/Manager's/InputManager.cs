@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _attackAction;
     private InputAction _sprintAction;
-    private InputAction _crouchAction;
+    private InputAction _reloadAction;
     private InputAction _aimDirectionAction;
     private InputAction _aimPointAction;
     private InputAction _pauseAction;
@@ -57,7 +57,7 @@ public class InputManager : MonoBehaviour
         _aimPointAction = _actionsData.PlayerMap.AimPoint;
         _aimDirectionAction = _actionsData.PlayerMap.AimDirection;
         _sprintAction = _actionsData.PlayerMap.Sprint;
-        _crouchAction = _actionsData.PlayerMap.Crouch;
+        _reloadAction = _actionsData.PlayerMap.Reload;
         _pauseAction = _actionsData.PlayerMap.Pause;
         _interactAction = _actionsData.PlayerMap.Interact;
         
@@ -136,12 +136,12 @@ public class InputManager : MonoBehaviour
 
     public Vector2 MoveInput()            => _moveAction.ReadValue<Vector2>();
     public Vector2 AimDirectionInput()    => _aimDirectionAction.ReadValue<Vector2>();
-    public Vector2 AimPointInput()            => _aimPointAction.ReadValue<Vector2>();
+    public Vector2 AimPointInput()        => _aimPointAction.ReadValue<Vector2>();
 
     public bool AttackInputIsPressed()    => _attackAction.IsPressed();
     public bool AttackInputClick()        => _attackAction.WasPressedThisFrame();
     public bool SprintInput()             => _sprintAction.IsPressed();
-    public bool CrouchInput()             => _crouchAction.WasPressedThisFrame();  // toggle — only fires once per press
+    public bool ReloadInput()             => _reloadAction.WasPressedThisFrame(); 
     public bool PauseInput()              => _pauseAction.WasPressedThisFrame();
     public bool InteractInput()           => _interactAction.WasPressedThisFrame();
 }

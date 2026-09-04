@@ -1,11 +1,13 @@
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Serialization;
 
 public class PlayerAnimation : MonoBehaviour
 {
     [Header("References")]
     [SerializeField, Required] private Animator animator;
     [SerializeField, Required] private InputManager input;
+    [SerializeField, Required] private PlayerAttack playerAttack;
 
     [Header("Animation Parameters")]
     [SerializeField, AnimatorParam("animator")]
@@ -15,10 +17,13 @@ public class PlayerAnimation : MonoBehaviour
     private int yInput;
     
     [SerializeField, AnimatorParam("animator")]
-    private int isRuning;
+    private int isRunning;
     
     [SerializeField, AnimatorParam("animator")]
     private int isShooting;
+    
+    [SerializeField, AnimatorParam("animator")]
+    private int isReloading;
 
     private void Update()
     {
@@ -35,7 +40,8 @@ public class PlayerAnimation : MonoBehaviour
         
         animator.SetFloat(xInput, localMove.x);
         animator.SetFloat(yInput, localMove.z);
-        animator.SetBool(isRuning, input.SprintInput());
-        animator.SetBool(isShooting, input.AttackInputIsPressed());
+        animator.SetBool(isRunning, input.SprintInput());
+        animator.SetBool(isShooting, input.AttackInputIsPressed() && playerAttack.HasAmmo());
+        animator.SetBool(isReloading, playerAttack.IsReloading());
     }
 }

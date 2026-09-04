@@ -50,18 +50,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void MovementFast()
     {
-        float forwardMove = 0;
-        
-        if (input.MoveInput().y >= 0.1f)
-        {
-            forwardMove = 1;
-        }
-        else
-        {
-            forwardMove = 0;
-        }
-        
-        // rb.MovePosition(transform.position + transform.forward * (forwardMove * ( runSpeed * Time.fixedDeltaTime)));
         rb.MovePosition(transform.position + transform.forward * ( runSpeed * Time.fixedDeltaTime));
     }
     

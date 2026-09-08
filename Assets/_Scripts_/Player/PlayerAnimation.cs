@@ -11,6 +11,9 @@ public class PlayerAnimation : MonoBehaviour
 
     [Header("Animation Parameters")]
     [SerializeField, AnimatorParam("animator")]
+    private int fireMode;
+    
+    [SerializeField, AnimatorParam("animator")]
     private int xInput;
 
     [SerializeField, AnimatorParam("animator")]
@@ -38,10 +41,16 @@ public class PlayerAnimation : MonoBehaviour
 
         Vector3 localMove = transform.InverseTransformDirection(worldMove);
         
+        animator.SetFloat(fireMode, playerAttack.CurrentFireMode());
+        
         animator.SetFloat(xInput, localMove.x);
+        
         animator.SetFloat(yInput, localMove.z);
+        
         animator.SetBool(isRunning, input.SprintInput());
+        
         animator.SetBool(isShooting, input.AttackInputIsPressed() && playerAttack.HasAmmo());
+        
         animator.SetBool(isReloading, playerAttack.IsReloading());
     }
 }

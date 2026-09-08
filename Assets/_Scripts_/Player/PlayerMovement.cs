@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (input.SprintInput())
         {
-            MovementFast();
+            SprintMovement();
         }
         else
         {
@@ -48,12 +48,11 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(transform.position + diraction * (walkSpeed * Time.fixedDeltaTime));
     }
     
-    private void MovementFast()
+    private void SprintMovement()
     {
         rb.MovePosition(transform.position + transform.forward * ( runSpeed * Time.fixedDeltaTime));
     }
     
-
     private void Rotation()
     {
         Vector2 aim = input.AimDirectionInput();

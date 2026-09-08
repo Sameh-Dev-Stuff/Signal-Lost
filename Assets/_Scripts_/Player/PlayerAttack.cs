@@ -11,21 +11,61 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private InputManager input;
 
     [Header("Ammo & Magazine Settings")]
-    [SerializeField] private int magazineCount = 3; // ظرفیت هر خشاب
-    [SerializeField] private int maxMagazineAmmoCount = 12;   // تیرهای داخل خشاب فعلی
-    [SerializeField,ReadOnly] private int currentMagazineAmmo = 12;   // تیرهای داخل خشاب فعلی
+    [SerializeField] private AmmoContainer singleAmmoContainer;
+    [SerializeField] private AmmoContainer burstAmmoContainer;
+    [SerializeField] private AmmoContainer fullAutoAmmoContainer;
+    [SerializeField] private FireMode currentAmmoType;
     [SerializeField,ReadOnly] private bool isShooting;
     [SerializeField,ReadOnly] private bool isReloading;
+
+    [Serializable]
+    private class AmmoContainer
+    {
+        public int magazineCount = 3; // ظرفیت هر خشاب
+        public int maxMagazineAmmoCount = 12;   // تیرهای داخل خشاب فعلی
+        public int currentMagazineAmmo = 12;   // تیرهای داخل خشاب فعلی
+    }
     
-    public bool HasAmmo() => currentMagazineAmmo > 0;
+    private AmmoContainer CurrentContainer
+    {
+        get
+        {
+            switch (currentAmmoType)
+            {
+                case FireMode.Single :
+                {
+                    return singleAmmoContainer;
+                }
+                case FireMode.Burst :
+                {
+                    return burstAmmoContainer;
+                }
+                case FireMode.FullAuto :
+                {
+                    return fullAutoAmmoContainer;
+                }
+                default:
+                {
+                    return singleAmmoContainer;
+                }
+            }
+        }
+    }
+    
+    public bool HasAmmo() => CurrentContainer.currentMagazineAmmo > 0;
+    
+    // This is just for returning correct data for PlayerAnimation class
+    public float CurrentFireMode() => (float)currentAmmoType;
     
     public bool IsReloading() => isReloading;
     
-    private bool CanReload() => magazineCount > 0 && currentMagazineAmmo < maxMagazineAmmoCount && isShooting == false;
+    private bool CanReload() => CurrentContainer.magazineCount > 0 && CurrentContainer.currentMagazineAmmo < CurrentContainer.maxMagazineAmmoCount && isShooting == false;
 
     private void Start()
     {
-        currentMagazineAmmo = maxMagazineAmmoCount;
+        singleAmmoContainer.currentMagazineAmmo = singleAmmoContainer.maxMagazineAmmoCount;
+        burstAmmoContainer.currentMagazineAmmo = burstAmmoContainer.maxMagazineAmmoCount;
+        fullAutoAmmoContainer.currentMagazineAmmo = fullAutoAmmoContainer.maxMagazineAmmoCount;
     }
 
     private void Update()
@@ -53,21 +93,38 @@ public class PlayerAttack : MonoBehaviour
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         
-            currentMagazineAmmo--;
+            CurrentContainer.currentMagazineAmmo--;
         }
     }
     
     // Reload() function just run on attack animation event
     private void Reload()
     {
-        magazineCount--;
-        currentMagazineAmmo = maxMagazineAmmoCount;
+        CurrentContainer.magazineCount--;
+        CurrentContainer.currentMagazineAmmo = CurrentContainer. maxMagazineAmmoCount;
     }
 
-    public void AddReserveAmmo(int amount)
+    public void AddReserveAmmo(int magazineCount, FireMode fireMode)
     {
-        magazineCount += amount;
-    }
+        switch (fireMode)
+        {
+            case FireMode.Single:
+            {
+                singleAmmoContainer.magazineCount += magazineCount;
+                break;
+            }
+            case FireMode.Burst:
+            {
+                burstAmmoContainer.magazineCount += magazineCount;
+                break;
+            }
+            case FireMode.FullAuto:
+            {
+                fullAutoAmmoContainer.magazineCount += magazineCount;
+                break;
+            }
+        }
+    } 
     
     public void IsShootingFalse() => isShooting = false;    // IsShootingFalse() function just run on attack animation event
     public void IsReloadFalse() => isReloading = false;    // IsReloadFalse() function just run on reload animation event

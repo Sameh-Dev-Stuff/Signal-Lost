@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Serialization;
 
 public class AmmoPickup : MonoBehaviour
 {
-    [SerializeField, Tag] private string pickupTag;
     [SerializeField] private int ammo;
+    [SerializeField] private FireMode fireMode;
+    [SerializeField, Tag] private string pickupTag;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +17,7 @@ public class AmmoPickup : MonoBehaviour
 
         PlayerAttack player = other.gameObject.GetComponent<PlayerAttack>();
         
-        player.AddReserveAmmo(ammo);
+        player.AddReserveAmmo(ammo,fireMode);
         Destroy(gameObject);
     }
 }

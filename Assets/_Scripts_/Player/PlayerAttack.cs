@@ -1,22 +1,24 @@
 using System;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Serialization;
 
 public class PlayerAttack : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Animator animator;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private Transform bullet;
+    [SerializeField] private Bullet bullet;
     [SerializeField] private InputManager input;
 
     [Header("Ammo & Magazine Settings")]
+    [SerializeField] private float damage;
     [SerializeField] private AmmoContainer singleAmmoContainer;
     [SerializeField] private AmmoContainer burstAmmoContainer;
     [SerializeField] private AmmoContainer fullAutoAmmoContainer;
-    [SerializeField] private FireMode currentAmmoType;
-    [SerializeField,ReadOnly] private bool isShooting;
-    [SerializeField,ReadOnly] private bool isReloading;
+    [SerializeField] private FireMode currentFireMode; 
+    [ReadOnly] private bool isShooting;
+    [ReadOnly] private bool isReloading;
 
     [Serializable]
     private class AmmoContainer
@@ -24,13 +26,14 @@ public class PlayerAttack : MonoBehaviour
         public int magazineCount = 3; // ظرفیت هر خشاب
         public int maxMagazineAmmoCount = 12;   // تیرهای داخل خشاب فعلی
         public int currentMagazineAmmo = 12;   // تیرهای داخل خشاب فعلی
+        public float damage = 1;   // تیرهای داخل خشاب فعلی
     }
     
     private AmmoContainer CurrentContainer
     {
         get
         {
-            switch (currentAmmoType)
+            switch (currentFireMode)
             {
                 case FireMode.Single :
                 {
@@ -55,7 +58,7 @@ public class PlayerAttack : MonoBehaviour
     public bool HasAmmo() => CurrentContainer.currentMagazineAmmo > 0;
     
     // This is just for returning correct data for PlayerAnimation class
-    public float CurrentFireMode() => (float)currentAmmoType;
+    public float CurrentFireMode() => (float)currentFireMode;
     
     public bool IsReloading() => isReloading;
     
@@ -70,7 +73,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        print(CanReload());
         if (input.AttackInputIsPressed() && HasAmmo())
         {
             isShooting = true;
@@ -91,8 +93,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (HasAmmo())
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
-        
+            Bullet spawnedBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            spawnedBullet.SetDamage(CurrentContainer.damage);
+
             CurrentContainer.currentMagazineAmmo--;
         }
     }

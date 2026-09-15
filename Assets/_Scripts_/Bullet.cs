@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -9,13 +10,13 @@ public class Bullet : MonoBehaviour
     [SerializeField, ReadOnly] private float damage;
 
     private void Start()
-    {
+    { 
         rb.AddForce(transform.forward * speed , ForceMode.Impulse);
         
         Destroy(gameObject, lifeTime);
     }
-    
-    private void OnCollisionEnter(Collision other)
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out IDamageable damageable))
         {

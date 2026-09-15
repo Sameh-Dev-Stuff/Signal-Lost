@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class HealthSystem : MonoBehaviour , IDamageable
 {
     [SerializeField] private float maxHealth;
-    [SerializeField, ReadOnly] private float currentHealth;
+    [SerializeField] private float currentHealth;
 
     public bool IsDead => currentHealth <= 0;
 
@@ -34,25 +34,5 @@ public class HealthSystem : MonoBehaviour , IDamageable
     public void AddHealth(float amount)
     {
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
-    }
-    
-    [Button]
-    private void DebugTakeDamage()
-    {
-        if (IsDead) return;
-        
-        currentHealth = Mathf.Max(0, currentHealth - 10);
-        OnDamageTaken?.Invoke(10);
-        
-        if (IsDead)
-        {
-            OnDeath?.Invoke();
-        }
-    }
-    
-    [Button]
-    private void DebugAddHealth()
-    {
-        currentHealth = Mathf.Min(maxHealth, currentHealth + 10);
     }
 }

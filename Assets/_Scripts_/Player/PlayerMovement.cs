@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         if (!rb) rb = GetComponent<Rigidbody>();
-        if (!input) input = FindAnyObjectByType<InputManager>();
+        if (!input) input = InputManager.Instance;
         _lastMousePosition = input.AimPointInput();
         _camera = Camera.main;
     }

@@ -1,4 +1,3 @@
-<img width="1534" height="855" alt="2" src="https://github.com/user-attachments/assets/62646503-63bf-4fff-a027-fd3608be9641" /><img width="1543" height="864" alt="1" src="https://github.com/user-attachments/assets/323d56fe-5dab-4116-bdfb-6b23590011ca" /><div align="center">
 
 # SIGNAL LOST
 

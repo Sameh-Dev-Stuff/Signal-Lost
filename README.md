@@ -62,7 +62,7 @@ Right now the project has the first slice of the core loop working end to end wi
 
 ## Built With
 
-Unity (URP) · New Input System · Cinemachine · NavMesh
+Unity 6.3 (URP) · New Input System · Cinemachine · NavMesh
 
 <br>
 

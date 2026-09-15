@@ -1,4 +1,4 @@
-<div align="center">
+<img width="1534" height="855" alt="2" src="https://github.com/user-attachments/assets/62646503-63bf-4fff-a027-fd3608be9641" /><img width="1543" height="864" alt="1" src="https://github.com/user-attachments/assets/323d56fe-5dab-4116-bdfb-6b23590011ca" /><div align="center">
 
 # SIGNAL LOST
 
@@ -8,10 +8,9 @@
 
 <br>
 
-![Unity](https://img.shields.io/badge/Unity-6000.0-000000?style=for-the-badge&logo=unity&logoColor=white)
-![URP](https://img.shields.io/badge/Render_Pipeline-URP-2A6DB0?style=for-the-badge)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Prototype-FFB020?style=for-the-badge)
+<img width="1543" height="864" alt="1" src="https://github.com/user-attachments/assets/3ebd78d3-819f-4534-ae5a-ba12f6153dc7" />
+<img width="1534" height="855" alt="2" src="https://github.com/user-attachments/assets/6e7c8595-5f9e-4fe9-8a29-64025a11cf58" />
+<img width="1920" height="927" alt="3" src="https://github.com/user-attachments/assets/9a8b9758-d194-4803-ac25-0ee5074d1a24" />
 
 </div>
 
@@ -48,7 +47,6 @@ Right now the project has the first slice of the core loop working end to end wi
 - [x] Reload tied to the reload animation
 - [x] Shared `Health` component (used by both player and enemies)
 - [x] Dummy enemy (capsule) with NavMesh pathfinding, chasing the player
-- [x] Bullet damage switched from `OnCollisionEnter` to `OnTriggerEnter`
 
 **Not built yet:** enemy attack/death states, the two remaining enemy types, the full 3-mode weapon system, pickups, the beacon objective, and UI.
 

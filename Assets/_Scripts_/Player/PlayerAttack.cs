@@ -17,33 +17,35 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AmmoContainer burstAmmoContainer;
     [SerializeField] private AmmoContainer fullAutoAmmoContainer;
     [SerializeField] private FireMode currentFireMode; 
-    [ReadOnly] private bool isShooting;
-    [ReadOnly] private bool isReloading;
+    private bool _isShooting;
+    private bool _isReloading;
 
     [Serializable]
     private class AmmoContainer
     {
-        public int magazineCount = 3; // ظرفیت هر خشاب
-        public int maxMagazineAmmoCount = 12;   // تیرهای داخل خشاب فعلی
-        public int currentMagazineAmmo = 12;   // تیرهای داخل خشاب فعلی
-        public float damage = 1;   // تیرهای داخل خشاب فعلی
+        public int magazineCount = 3;            // Number of magazines
+        public int maxMagazineAmmoCount = 12;   // Maximum ammo per magazine
+        public int currentMagazineAmmo = 12;   // Current ammo in the magazine
+        public float damage = 1;              // Damage per shot
     }
     
     private AmmoContainer CurrentContainer
     {
         get
         {
+            // Returns the ammo container for the current fire mode.
+            // Each fire mode has its own magazine count, ammo count, and damage.
             switch (currentFireMode)
             {
-                case FireMode.Single :
+                case FireMode.Single:
                 {
                     return singleAmmoContainer;
                 }
-                case FireMode.Burst :
+                case FireMode.Burst:
                 {
                     return burstAmmoContainer;
                 }
-                case FireMode.FullAuto :
+                case FireMode.FullAuto:
                 {
                     return fullAutoAmmoContainer;
                 }
@@ -60,9 +62,9 @@ public class PlayerAttack : MonoBehaviour
     // This is just for returning correct data for PlayerAnimation class
     public float CurrentFireMode() => (float)currentFireMode;
     
-    public bool IsReloading() => isReloading;
+    public bool IsReloading() => _isReloading;
     
-    private bool CanReload() => CurrentContainer.magazineCount > 0 && CurrentContainer.currentMagazineAmmo < CurrentContainer.maxMagazineAmmoCount && isShooting == false;
+    private bool CanReload() => CurrentContainer.magazineCount > 0 && CurrentContainer.currentMagazineAmmo < CurrentContainer.maxMagazineAmmoCount && _isShooting == false;
 
     private void Start()
     {
@@ -73,18 +75,24 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        // Check if the player is trying to shoot and has ammo.
+        // _isShooting is used to prevent reloading while the player is shooting.
         if (input.AttackInputIsPressed() && HasAmmo())
         {
-            isShooting = true;
+            _isShooting = true;
         }
+        // Automatically start reloading when the magazine is empty.
         else if (CanReload() && !HasAmmo())
         {
-            isReloading = true;
+            _isReloading = true;
         }
-        
+
+        // Start reloading when the player manually presses the reload button.
+        // CanReload() makes sure there is a magazine available and the current
+        // magazine is not already full.
         if (CanReload() && input.ReloadInput())
         {
-            isReloading = true;
+            _isReloading = true;
         }
     }
 
@@ -94,7 +102,8 @@ public class PlayerAttack : MonoBehaviour
         if (HasAmmo())
         {
             Bullet spawnedBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
-            spawnedBullet.SetDamage(CurrentContainer.damage);
+            
+            spawnedBullet.SetDamageInfo(CurrentContainer.damage, transform);
 
             CurrentContainer.currentMagazineAmmo--;
         }
@@ -104,9 +113,10 @@ public class PlayerAttack : MonoBehaviour
     private void Reload()
     {
         CurrentContainer.magazineCount--;
-        CurrentContainer.currentMagazineAmmo = CurrentContainer. maxMagazineAmmoCount;
+        CurrentContainer.currentMagazineAmmo = CurrentContainer.maxMagazineAmmoCount;
     }
 
+    // Ammo pickup logic
     public void AddReserveAmmo(int magazineCount, FireMode fireMode)
     {
         switch (fireMode)
@@ -129,6 +139,6 @@ public class PlayerAttack : MonoBehaviour
         }
     } 
     
-    public void IsShootingFalse() => isShooting = false;    // IsShootingFalse() function just run on attack animation event
-    public void IsReloadFalse() => isReloading = false;    // IsReloadFalse() function just run on reload animation event
+    public void IsShootingFalse() => _isShooting = false;    // IsShootingFalse() function just run on attack animation event
+    public void IsReloadFalse() => _isReloading = false;    // IsReloadFalse() function just run on reload animation event
 } 

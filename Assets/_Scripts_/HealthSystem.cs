@@ -1,38 +1,45 @@
 using System;
-using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class HealthSystem : MonoBehaviour , IDamageable
+public class HealthSystem : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
 
     public bool IsDead => currentHealth <= 0;
 
-    public event Action<float> OnDamageTaken;
+    public event Action<DamageInfo> OnDamageTaken;
     public event Action OnDeath;
-    
+
     private void Awake()
     {
+        // Set health to maximum at the start
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageInfo damageInfo)
     {
         if (IsDead) return;
-        
-        currentHealth = Mathf.Max(0, currentHealth - damage);
-        OnDamageTaken?.Invoke(damage);
-        
+
+        // Reduce health and prevent negative values
+        currentHealth = Mathf.Max(0, currentHealth - damageInfo.Damage);
+
+        // Notify other systems when damage is taken
+        OnDamageTaken?.Invoke(damageInfo);
+
+        // Notify other systems when the character dies
         if (IsDead)
         {
             OnDeath?.Invoke();
         }
     }
-    
+
     public void AddHealth(float amount)
     {
-        currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        if (IsDead == false)
+        {
+            // Restore health without exceeding the maximum
+            currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        }
     }
 }

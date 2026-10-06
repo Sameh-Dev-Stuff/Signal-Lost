@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class EnemyDeathHandler : MonoBehaviour
 {
-    private HealthSystem healthSystem;
+    private HealthSystem _healthSystem;
 
     private void Awake()
     {
-        healthSystem = GetComponent<HealthSystem>();
+        _healthSystem = GetComponent<HealthSystem>();
     }
 
     private void OnEnable()
     {
-        healthSystem.OnDeath += HandleDeath;
-        healthSystem.OnDamageTaken += HandleDamageTaken;
+        _healthSystem.OnDeath += HandleDeath;
+        _healthSystem.OnDamageTaken += HandleDamageTaken;
     }
 
     private void OnDisable()
     {
-        healthSystem.OnDeath -= HandleDeath;
-        healthSystem.OnDamageTaken -= HandleDamageTaken;
+        _healthSystem.OnDeath -= HandleDeath;
+        _healthSystem.OnDamageTaken -= HandleDamageTaken;
     }
 
     private void HandleDeath()
@@ -28,7 +28,7 @@ public class EnemyDeathHandler : MonoBehaviour
         Destroy(gameObject);
     }
     
-    private void HandleDamageTaken(float damageAmount)
+    private void HandleDamageTaken(DamageInfo damageInfo)
     {
         
     }

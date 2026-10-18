@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -99,8 +100,10 @@ public class PlayerAttack : MonoBehaviour
     // Fire() function just run on attack animation event
     private void Fire()
     {
-        if (HasAmmo())
+        if (HasAmmo()) // Was true 
         {
+            firePoint.eulerAngles = new Vector3(0, firePoint.eulerAngles.y, firePoint.eulerAngles.z);
+            
             Bullet spawnedBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
             
             spawnedBullet.SetDamageInfo(CurrentContainer.damage, transform);

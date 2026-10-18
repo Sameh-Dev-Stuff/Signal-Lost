@@ -39,13 +39,11 @@ public class EnemyAttack : MonoBehaviour
 
         _target = target;
         _isAttacking = true;
-        print(12);
-        DealDamage();
-        // animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
     }
 
-    // Hook this to an Animation Event, placed on the frame where the weapon actually connects
-    private void DealDamage()
+    // DealDamage() function just run on attack animation event
+    public void DealDamage()
     {
         if (_target == null) return;
 
@@ -57,12 +55,11 @@ public class EnemyAttack : MonoBehaviour
         {
             damageable.TakeDamage(new DamageInfo { Damage = damage, Attacker = transform });
         }
-
-        AttackFinished();
+        print($"I Deal {damage} Damage");
     }
 
-    // Hook this to an Animation Event, placed on the last frame of the attack clip
-    private void AttackFinished()
+    // DealDamage() function just run on attack animation event
+    public void AttackFinished()
     {
         _isAttacking = false;
         _cooldownTimer = attackCooldown;

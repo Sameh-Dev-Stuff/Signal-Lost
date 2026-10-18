@@ -1,3 +1,4 @@
+<div align="center">
 
 # SIGNAL LOST
 
@@ -38,16 +39,16 @@ Explore  →  Scavenge ammo & beacon parts  →  Fight enemies
 
 ## Current Progress — Prototype Phase
 
-Right now the project has the first slice of the core loop working end to end with a dummy enemy:
+The player side of the core loop is working, along with a dummy/base enemy that detects and chases the player:
 
 - [x] Top-down player controller (New Input System) + Cinemachine camera
-- [x] Walk/run Blend Tree driven by movement speed
-- [x] Single-fire shooting — raycast, damage, animation trigger
+- [x] Walk/run Blend Tree driven by Input System
+- [x] Projectile shooting — bullets deal damage through a shared `IDamageable` interface
+- [x] Three fire modes — single, burst and full-auto — each with its own magazine and ammo container
 - [x] Reload tied to the reload animation
-- [x] Shared `Health` component (used by both player and enemies)
-- [x] Dummy enemy (capsule) with NavMesh pathfinding, chasing the player
-
-**Not built yet:** enemy attack/death states, the two remaining enemy types, the full 3-mode weapon system, pickups, the beacon objective, and UI.
+- [x] Shared `HealthSystem` component with damage and death events (used by both player and enemies)
+- [x] Base enemy (dummy capsule) with NavMesh pathfinding
+- [x] Enemy chase — detects the player in range, follows them, and retargets whoever shoots it
 
 <br>
 

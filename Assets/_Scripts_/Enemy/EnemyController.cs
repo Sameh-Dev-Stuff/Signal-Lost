@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private HealthSystem healthSystem;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private EnemyAttack enemyAttack;
-    private Transform _playerTarget;
+    [SerializeField] private Transform _playerTarget;
 
     [Header("Settings")]
     [SerializeField] private float pathUpdateInterval = 0.2f;

@@ -1,6 +1,6 @@
-using System;
-using UnityEngine;
+using NaughtyAttributes;
 using UnityEngine.AI;
+using UnityEngine;
 
 [RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
 public class EnemyController : MonoBehaviour
@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private HealthSystem healthSystem;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private EnemyAttack enemyAttack;
-    [SerializeField] private Transform _playerTarget;
+    [SerializeField,ReadOnly] private Transform playerTarget;
 
     [Header("Settings")]
     [SerializeField] private float pathUpdateInterval = 0.2f;
@@ -45,19 +45,19 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         // Player Detection
-        if (!_playerTarget)
+        if (!playerTarget)
         {
             Collider[] detectionResult = Physics.OverlapSphere(transform.position, detectionRadius, playerMask);
 
             if (detectionResult.Length > 0)
             {
-                _playerTarget = detectionResult[0].transform;
+                playerTarget = detectionResult[0].transform;
             }
 
             return;
         }
 
-        float distanceToTarget = Vector3.Distance(transform.position, _playerTarget.position);
+        float distanceToTarget = Vector3.Distance(transform.position, playerTarget.position);
 
         // Close enough to attack: stop moving, face the player and let EnemyAttack handle the hit
         if (distanceToTarget <= enemyAttack.AttackRange)
@@ -79,7 +79,7 @@ public class EnemyController : MonoBehaviour
 
         if (_pathUpdateTimer >= pathUpdateInterval)
         {
-            agent.SetDestination(_playerTarget.position);
+            agent.SetDestination(playerTarget.position);
             _pathUpdateTimer = 0f;
         }
     }
@@ -93,13 +93,13 @@ public class EnemyController : MonoBehaviour
         // Don't interrupt an attack animation that's already playing
         if (!enemyAttack.IsAttacking)
         {
-            enemyAttack.TryAttack(_playerTarget);
+            enemyAttack.TryAttack(playerTarget);
         }
     }
 
     private void FaceTarget()
     {
-        Vector3 direction = _playerTarget.position - transform.position;
+        Vector3 direction = playerTarget.position - transform.position;
         direction.y = 0f;
 
         if (direction.sqrMagnitude < 0.001f) return;
@@ -121,14 +121,19 @@ public class EnemyController : MonoBehaviour
     // Set the attacker as the target when the enemy takes damage
     private void HandleDamageTaken(DamageInfo damageInfo)
     {
-        _playerTarget = damageInfo.Attacker;
+        playerTarget = damageInfo.Attacker;
     }
 
-    private void OnDrawGizmos()
+    public void AssignTarget(Transform target)
+    {
+        playerTarget = target;
+    }
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
-
+    
         if (enemyAttack != null)
         {
             Gizmos.color = Color.yellow;

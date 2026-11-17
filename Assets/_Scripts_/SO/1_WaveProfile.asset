@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6f7636585aa8546aa8e1ea1d1e1f66, type: 3}
   m_Name: 1_WaveProfile
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveProfileSO
-  targetPrefab: {fileID: 8300825804590981837, guid: 52ece0300684813499839314f7899e36, type: 3}
-  spawnAmount: 20
+  targetPrefab: {fileID: 5117791533430261945, guid: eacde81f32532e247a2a6a34e2254340, type: 3}
+  spawnAmount: 5
   maxSpawnDelay: 0.35
   minSpawnDelay: 0.1
   maxSpawnRange: 18

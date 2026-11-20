@@ -2861,6 +2861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0ab832cbdb0e548896ff7e1ad41a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+--- !u!1 &1556348483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6705389944755571696, guid: dc0ebc000eff3474f9851d4bcc732675, type: 3}
+  m_PrefabInstance: {fileID: 7631908404539322759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563437601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,13 +3884,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6705389944755571696, guid: dc0ebc000eff3474f9851d4bcc732675, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7673487251695076831}
   m_SourcePrefab: {fileID: 100100000, guid: dc0ebc000eff3474f9851d4bcc732675, type: 3}
 --- !u!4 &7673487251695076822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8001829368895840069, guid: dc0ebc000eff3474f9851d4bcc732675, type: 3}
   m_PrefabInstance: {fileID: 7631908404539322759}
   m_PrefabAsset: {fileID: 0}
+--- !u!75 &7673487251695076831
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556348483}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &8132271085972086991
 MonoBehaviour:
   m_ObjectHideFlags: 0
